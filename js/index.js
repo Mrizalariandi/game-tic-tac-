@@ -6,6 +6,7 @@ $(document).ready(function () {
 	var count = 0;
 	var o_win = 0;
 	var x_win = 0;
+
 	$('#game li').click(function () {
 		if ($(this).hasClass('disable')) {
 			// empty			
@@ -56,6 +57,7 @@ $(document).ready(function () {
 		}
 
 	});
+	
 	$("#reset").click(function () {
 		$("#game li").text("");
 		$('#text_game').text("Start Game")
