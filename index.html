@@ -1,57 +1,119 @@
+<!-- <html>
+
+<head>
+  <meta name="viewport" content="width=device-width, height=device-height" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      background: #8BC34A;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-sm-12">
+        <h1 class="span3" > Tic Tac Toe </h1>
+    </div>
+    <div class="col-sm-12">        
+      <canvas id="TTTCanvas" width="720" height="720"></canvas>
+      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="js/graphics.js"></script>
+      <script src="js/Logic.js"></script>
+      <script src="js/gui.js"></script>
+      <script src="js/TicTac.js"></script>
+    </div>
+  </div>
+</body>
+
+</html> -->
+
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <title>Tic Tac Toe game</title>
-  
-  
+
+
   <link rel='stylesheet prefetch' href='https://getbootstrap.com/2.3.2/assets/css/bootstrap.css'>
 
-      <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="images/style.css">
 
-  
+
 </head>
 
 <body>
 
+
   <div id="tic-tac-toe">
-<div class="span3 new_span">
-<div class="row">
-<h1 class="span3"> Tic Tac Toe <br>2 Player</h1>
-<div class="span3">
-<div class="input-prepend input-append">
-    <span class="add-on win_text">O</span><strong id="o_win" class="win_times add-on">0</strong><span class="add-on"> Player 1</span>
+    <div class="span6">
+      <div id="start" class="row">
+        <img src="https://gregbclement.com/images/TicTacToe/tick-tack-toe-logo.png">
+        <div class="span5">
+          <p>&nbsp;</p>
+          <p class="text-center">
+            <input type="button" id="single" class="span2" style="border-radius: 10px;padding: 10px;background: #03A9F4;color: white;border-color: #03A9F4;
+        "
+              value="Single Player">
+            <input type="button" id="multiplayer" onclick="myFunction()" class="span2" style="border-radius: 10px;padding: 10px;background: #03A9F4;color: white;border-color: #03A9F4;"
+              value="Multiplayer">
+          </p>
+        </div>
+      </div>
+      <div id="display" class="row display-none">
+        <img src="https://gregbclement.com/images/TicTacToe/tick-tack-toe-logo.png" style="width: 100%;">
+        <div class="span6">
+          <div class="input-prepend input-append" style="position: absolute;left: 10%;padding: 10px;background: #7c7cff;border-radius: 10px;">
+            <!-- <span class="add-on win_text">O</span><strong id="o_win" class="win_times add-on">0</strong><span class="add-on">
+              Player 1</span> -->
+            <h2 id="player1" style="color:white">Player 1</h3>
+              <h3 style="text-align: center;color:white"><strong id="o_win">0</strong></h3>
+          </div>
+          <div class="input-prepend input-append" style="position: absolute;right: 10%;padding: 10px;background: #f7b95f;border-radius: 10px;">
+            <h2 id="player2" style="color:white">Player 2</h3>
+              <h3 style="text-align: center;color:white"><strong id="x_win">0</strong></h3>
+              <!-- <span class="add-on win_text">X</span><strong id="x_win" class="win_times add-on">0</strong><span class="add-on">Player
+              2</span> -->
+          </div>
+          <h3 id="status" style="text-align: center;background: #e74641;color: white;border-radius: 20px;"></h3>
+          <p class="text-center" id="text_game" style="color:white">Start game</p>
+        </div>
+      </div>
+      <ul id="game" class="row display-none">
+        <li id="one" class="span2 top left"></li>
+        <li id="two" class="span2 top"></li>
+        <li id="three" class="span2 top right"></li>
+        <li id="four" class="span2 left"></li>
+        <li id="five" class="span2"></li>
+        <li id="six" class="span2 right"></li>
+        <li id="seven" class="span2 bottom left"></li>
+        <li id="eight" class="span2 bottom"></li>
+        <li id="nine" class="span2 bottom right"></li>
+      </ul>
+      <div id="display2" class="clr display-none">&nbsp;</div>
+      <div id="display3" class="row display-none"><a href="#" id="reset" class="btn-success btn span5"><img style="width: 2em;"
+            src="https://www.freeiconspng.com/uploads/restart-icon-30.png">
+          <b>Restart</b></a></div>
     </div>
-    <div class="input-prepend input-append">
-    <span class="add-on win_text">X</span><strong id="x_win" class="win_times add-on">0</strong><span class="add-on">Player 2</span>
-    </div>
-    <p class="text-center" id="text_game" style="color:white">Start game</p>
-</div>
+  </div>
+  <!-- <div id="tic-tac-toe">
+      <canvas id="TTTCanvas" width="720" height="720"></canvas>
+      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="js/graphics.js"></script>
+      <script src="js/Logic.js"></script>
+      <script src="js/gui.js"></script>
+      <script src="js/TicTac.js"></script>
+  </div> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
 
 
 
-    
-</div>
-<ul class="row" id="game">
-<li id="one" class="span1 top left" ></li>
-<li id="two" class="span1 top"></li>
-<li id="three" class="span1 top right"></li>
-<li id="four" class="span1 left"></li>
-<li id="five" class="span1"></li>
-<li id="six" class="span1 right"></li>
-<li id="seven" class="span1 bottom left"></li>
-<li id="eight" class="span1 bottom"></li>
-<li id="nine" class="span1 bottom right"></li>
-</ul>
-<div class="clr">&nbsp;</div>
-<div class="row"><a href="#" id="reset" class="btn-success btn span3" >Restart</a></div></div>
-</div>
-  <script src='https://code.jquery.com/jquery-1.7.2.min.js'></script>
-
-  
-
-    <script  src="js/index.js"></script>
+  <script src="js/index.js"></script>
 
 
 
